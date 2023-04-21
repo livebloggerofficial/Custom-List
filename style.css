@@ -1,0 +1,56 @@
+.list-container ol {
+  max-width: 600px;
+  font-family: "Roboto", sans-serif;
+  margin: 32px auto;
+  line-height: 1.8;
+  list-style: none;
+  counter-reset: list-counter;
+}
+
+.list-container img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.list-container li {
+  margin: 20px 32px;
+  position: relative;
+}
+
+.list-container li::before {
+  content: counter(list-counter);
+  counter-increment: list-counter;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  border: 2px solid #e72c2c;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #fff;
+  transition: all 200ms ease;
+}
+
+.list-container li:hover::before {
+  background: #e72c2c;
+  color: #fff;
+}
+
+.list-container li::after {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 42px;
+  height: calc(100% - 30px);
+  width: 1px;
+  background: #000;
+}
+
+.list-container li:last-child::after {
+  height: calc(100% - 50px);
+}
